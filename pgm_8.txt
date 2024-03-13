@@ -1,0 +1,80 @@
+8.Develop a c# program to implement stack with push and pop operations[Hint:Use class ,get/set 
+properties, methods for push and pop and main method
+
+using System;
+class StackProgram
+{
+ static void Main()
+ {
+ Stack stack = new Stack();
+ stack.Push(10);
+ stack.Push(20);
+ stack.Push(30);
+ Console.WriteLine("Stack elements:");
+ stack.Display();
+ 
+ int poppedElement = stack.Pop();
+ Console.WriteLine($"Popped element: {poppedElement}");
+ 
+ Console.WriteLine("Stack elements after popping:");
+ stack.Display();
+ }
+}
+class Stack
+{
+ private const int MaxSize = 10;
+ private int[] array = new int[MaxSize];
+ private int top = -1;
+ 
+ public bool IsEmpty
+ {
+ get { return top == -1; }
+ }
+ 
+ public bool IsFull
+ {
+ get { return top == MaxSize - 1; }
+ }
+  public int Top
+ {
+ get { return top; }
+ }
+
+ public void Push(int element)
+ {
+ if (IsFull)
+ {
+ Console.WriteLine("Stack overflow! Cannot push more elements.");
+ }
+ else
+ {
+ array[++top] = element;
+ Console.WriteLine($"Pushed element: {element}");
+ }
+ }
+ public int Pop()
+ {
+ if (IsEmpty)
+ {
+ Console.WriteLine("Stack underflow! Cannot pop from an empty stack.");
+ return -1; 
+ }
+ else
+ {
+ int poppedElement = array[top--];
+ return poppedElement;
+ }
+ }
+
+ public void Display()
+ {
+ if (IsEmpty) {
+ Console.WriteLine("Stack is empty."); }
+ else
+ {
+ for (int i = 0; i <= top; i++) {
+ Console.Write($"{array[i]} "); }
+ Console.WriteLine();
+ }
+ }
+}

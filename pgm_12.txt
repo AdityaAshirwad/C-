@@ -1,0 +1,61 @@
+12. Develop a C# program to create an interface Resizable with methods reizeWidth(int width) and 
+resizeHeight(int height) that allow an object to be resized. Create a class Rectangle that implements the 
+Resizable interface and implements the resize methods.
+
+using System;
+interface Resizable
+{
+ void ResizeWidth(int width);
+ void ResizeHeight(int height);
+}
+class Rectangle : Resizable
+{
+ private int width;
+ private int height;
+ public Rectangle(int width, int height)
+ {
+ this.width = width;
+ this.height = height;
+ }
+ public void ResizeWidth(int newWidth)
+ {
+ if (newWidth > 0)
+ {
+ width = newWidth;
+ Console.WriteLine($"Width resized to {width}");
+ }
+ else
+ {
+ Console.WriteLine("Invalid width. Width must be greater than 0.");
+ }
+ }
+ public void ResizeHeight(int newHeight)
+ {
+ if (newHeight > 0)
+ {
+ height = newHeight;
+ Console.WriteLine($"Height resized to {height}");
+ }
+ else
+ {
+ Console.WriteLine("Invalid height. Height must be greater than 0.");
+ }
+ }
+ public void DisplayDimensions()
+ {
+ Console.WriteLine($"Rectangle Dimensions - Width: {width}, Height: {height}");
+ }
+}
+class Program
+{
+ static void Main()
+ {
+ Rectangle rectangle = new Rectangle(5, 8);
+ Console.WriteLine("Initial Rectangle Dimensions:");
+ rectangle.DisplayDimensions();
+ rectangle.ResizeWidth(10);
+ rectangle.ResizeHeight(12);
+ Console.WriteLine("\nUpdated Rectangle Dimensions:");
+ rectangle.DisplayDimensions();
+ }
+}
