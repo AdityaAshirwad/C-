@@ -1,0 +1,23 @@
+using System; 
+class SubstringExample 
+{ 
+static void Main() 
+{ 
+Console.WriteLine("Enter a string:"); 
+string input = Console.ReadLine(); 
+Console.WriteLine("\nAll substrings:"); 
+ListSubstrings(input); 
+} 
+static void ListSubstrings(string str) 
+{ 
+int length = str.Length; 
+for (int start = 0; start < length; start++) 
+{ 
+for (int end = start + 1; end <= length; end++) 
+{ 
+string substring = str.Substring(start, end - start); 
+Console.WriteLine(substring); 
+} 
+} 
+} 
+} 

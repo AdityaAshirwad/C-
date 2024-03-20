@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int number = 1;
+        Console.WriteLine("enter number of rows");
+        int totalRows = Convert.ToInt32(Console.ReadLine());
+        int[][] jag = new int[totalRows][];
+        for(int i=0;i<jag.Length;i++)
+        {
+            jag[i] = new int[i + 1];
+        }
+
+        for(int i=0;i<jag.Length;i++)
+        {
+            for(int j = 0; j < jag[i].Length;j++)
+            {
+                jag[i][j] = number;
+                number++;
+            }
+        }
+
+
+        for (int i = 0; i < jag.Length; i++)
+        {
+            for (int j = 0; j < jag[i].Length; j++)
+            {
+                Console.Write(jag[i][j]+" ");
+            }
+            Console.WriteLine();
+        }
+
+
+    }
+}
